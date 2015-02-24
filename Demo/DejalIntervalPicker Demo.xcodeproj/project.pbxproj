@@ -1,0 +1,342 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1787388B151E4FAF006B4EA0 /* DejalIntervalPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1787388A151E4FAF006B4EA0 /* DejalIntervalPicker.m */; };
+		179663B1151E4C01000E5BAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 179C059A151E3FC400364528 /* AppDelegate.m */; };
+		179663B2151E4C01000E5BAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 179C0593151E3FC400364528 /* main.m */; };
+		179C0588151E3FC400364528 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179C0587151E3FC400364528 /* Cocoa.framework */; };
+		179C0592151E3FC400364528 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 179C0590151E3FC400364528 /* InfoPlist.strings */; };
+		179C0598151E3FC400364528 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 179C0596151E3FC400364528 /* Credits.rtf */; };
+		179C059E151E3FC400364528 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 179C059C151E3FC400364528 /* MainMenu.xib */; };
+		17C78A441A999AFC00270F37 /* DejalInterval.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C78A3F1A999AFC00270F37 /* DejalInterval.m */; };
+		17C78A451A999AFC00270F37 /* DejalObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C78A411A999AFC00270F37 /* DejalObject.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		17873889151E4FAF006B4EA0 /* DejalIntervalPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DejalIntervalPicker.h; path = ../DejalIntervalPicker.h; sourceTree = "<group>"; };
+		1787388A151E4FAF006B4EA0 /* DejalIntervalPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DejalIntervalPicker.m; path = ../DejalIntervalPicker.m; sourceTree = "<group>"; };
+		179C0583151E3FC400364528 /* DejalIntervalPicker Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DejalIntervalPicker Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		179C0587151E3FC400364528 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		179C058A151E3FC400364528 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		179C058B151E3FC400364528 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		179C058C151E3FC400364528 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		179C058F151E3FC400364528 /* DejalIntervalPicker Demo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DejalIntervalPicker Demo-Info.plist"; sourceTree = "<group>"; };
+		179C0591151E3FC400364528 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		179C0593151E3FC400364528 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		179C0595151E3FC400364528 /* DejalIntervalPicker Demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DejalIntervalPicker Demo-Prefix.pch"; sourceTree = "<group>"; };
+		179C0597151E3FC400364528 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		179C0599151E3FC400364528 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		179C059A151E3FC400364528 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		179C059D151E3FC400364528 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		17C78A3E1A999AFC00270F37 /* DejalInterval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalInterval.h; sourceTree = "<group>"; };
+		17C78A3F1A999AFC00270F37 /* DejalInterval.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalInterval.m; sourceTree = "<group>"; };
+		17C78A401A999AFC00270F37 /* DejalObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DejalObject.h; sourceTree = "<group>"; };
+		17C78A411A999AFC00270F37 /* DejalObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DejalObject.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		179C0580151E3FC400364528 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179C0588151E3FC400364528 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		179C0578151E3FC400364528 = {
+			isa = PBXGroup;
+			children = (
+				17873889151E4FAF006B4EA0 /* DejalIntervalPicker.h */,
+				1787388A151E4FAF006B4EA0 /* DejalIntervalPicker.m */,
+				17C78A391A999AFC00270F37 /* DejalObject */,
+				179C058D151E3FC400364528 /* Demo */,
+				179C0586151E3FC400364528 /* Frameworks */,
+				179C0584151E3FC400364528 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		179C0584151E3FC400364528 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				179C0583151E3FC400364528 /* DejalIntervalPicker Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		179C0586151E3FC400364528 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				179C0587151E3FC400364528 /* Cocoa.framework */,
+				179C0589151E3FC400364528 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		179C0589151E3FC400364528 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				179C058A151E3FC400364528 /* AppKit.framework */,
+				179C058B151E3FC400364528 /* CoreData.framework */,
+				179C058C151E3FC400364528 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		179C058D151E3FC400364528 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				179C0599151E3FC400364528 /* AppDelegate.h */,
+				179C059A151E3FC400364528 /* AppDelegate.m */,
+				179C059C151E3FC400364528 /* MainMenu.xib */,
+				179C058E151E3FC400364528 /* Supporting Files */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
+		179C058E151E3FC400364528 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				179C058F151E3FC400364528 /* DejalIntervalPicker Demo-Info.plist */,
+				179C0590151E3FC400364528 /* InfoPlist.strings */,
+				179C0593151E3FC400364528 /* main.m */,
+				179C0595151E3FC400364528 /* DejalIntervalPicker Demo-Prefix.pch */,
+				179C0596151E3FC400364528 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17C78A391A999AFC00270F37 /* DejalObject */ = {
+			isa = PBXGroup;
+			children = (
+				17C78A401A999AFC00270F37 /* DejalObject.h */,
+				17C78A411A999AFC00270F37 /* DejalObject.m */,
+				17C78A3E1A999AFC00270F37 /* DejalInterval.h */,
+				17C78A3F1A999AFC00270F37 /* DejalInterval.m */,
+			);
+			name = DejalObject;
+			path = ../../DejalObject;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		179C0582151E3FC400364528 /* DejalIntervalPicker Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 179C05A1151E3FC400364528 /* Build configuration list for PBXNativeTarget "DejalIntervalPicker Demo" */;
+			buildPhases = (
+				179C057F151E3FC400364528 /* Sources */,
+				179C0580151E3FC400364528 /* Frameworks */,
+				179C0581151E3FC400364528 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DejalIntervalPicker Demo";
+			productName = "DejalIntervalPicker Demo";
+			productReference = 179C0583151E3FC400364528 /* DejalIntervalPicker Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		179C057A151E3FC400364528 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Dejal Systems, LLC";
+			};
+			buildConfigurationList = 179C057D151E3FC400364528 /* Build configuration list for PBXProject "DejalIntervalPicker Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 179C0578151E3FC400364528;
+			productRefGroup = 179C0584151E3FC400364528 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				179C0582151E3FC400364528 /* DejalIntervalPicker Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		179C0581151E3FC400364528 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				179C0592151E3FC400364528 /* InfoPlist.strings in Resources */,
+				179C0598151E3FC400364528 /* Credits.rtf in Resources */,
+				179C059E151E3FC400364528 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		179C057F151E3FC400364528 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17C78A451A999AFC00270F37 /* DejalObject.m in Sources */,
+				179663B1151E4C01000E5BAE /* AppDelegate.m in Sources */,
+				179663B2151E4C01000E5BAE /* main.m in Sources */,
+				17C78A441A999AFC00270F37 /* DejalInterval.m in Sources */,
+				1787388B151E4FAF006B4EA0 /* DejalIntervalPicker.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		179C0590151E3FC400364528 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				179C0591151E3FC400364528 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		179C0596151E3FC400364528 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				179C0597151E3FC400364528 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		179C059C151E3FC400364528 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				179C059D151E3FC400364528 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		179C059F151E3FC400364528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		179C05A0151E3FC400364528 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		179C05A2151E3FC400364528 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DejalIntervalPicker Demo-Prefix.pch";
+				INFOPLIST_FILE = "DejalIntervalPicker Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		179C05A3151E3FC400364528 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DejalIntervalPicker Demo-Prefix.pch";
+				INFOPLIST_FILE = "DejalIntervalPicker Demo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		179C057D151E3FC400364528 /* Build configuration list for PBXProject "DejalIntervalPicker Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179C059F151E3FC400364528 /* Debug */,
+				179C05A0151E3FC400364528 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		179C05A1151E3FC400364528 /* Build configuration list for PBXNativeTarget "DejalIntervalPicker Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				179C05A2151E3FC400364528 /* Debug */,
+				179C05A3151E3FC400364528 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 179C057A151E3FC400364528 /* Project object */;
+}
