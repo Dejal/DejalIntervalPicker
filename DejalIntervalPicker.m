@@ -1813,6 +1813,28 @@
 }
 
 /**
+ Helper method for the -showMenu method.
+ 
+ @param menu The menu that was just built.
+ @returns The menu item with the checkmark, or nil if none.
+ 
+ @author DJS 2015-04.
+ */
+
+- (NSMenuItem *)selectedItemForMenu:(NSMenu *)menu;
+{
+    for (NSMenuItem *menuItem in menu.itemArray)
+    {
+        if (menuItem.state == NSOnState)
+        {
+            return menuItem;
+        }
+    }
+    
+    return nil;
+}
+
+/**
  Drops down a menu for the selected cell, with a range of suitable values.
  
  @author DJS 2008-07.
@@ -1822,17 +1844,14 @@
 - (void)showMenu;
 {
     NSMenu *menu = [self makeMenuForSelectedCell];
+    NSPoint location = self.selectedCellFrame.origin;
     
-    // Convert the control frame origin to the window's coordinates:
-    NSPoint location = [self convertPoint:[self bounds].origin toView:[self.window contentView]];
-    NSPoint cellOrigin = self.selectedCellFrame.origin;
+    location.x -= 19.0;
+    location.y += 16.0;
     
-    location.x += cellOrigin.x;
-    location.y += cellOrigin.y - 8;
+    menu.font = self.unitsCell.font;
     
-    NSEvent *event = [NSEvent mouseEventWithType:NSLeftMouseDown location:location modifierFlags:0 timestamp:0.0 windowNumber:[self.window windowNumber] context:nil eventNumber:0 clickCount:1 pressure:1.0];
-    
-    [NSMenu popUpContextMenu:menu withEvent:event forView:self withFont:[NSFont labelFontOfSize:13]];
+    [menu popUpMenuPositioningItem:[self selectedItemForMenu:menu] atLocation:location inView:self];
 }
 
 /**
@@ -2144,9 +2163,10 @@
  Populates the menu.
  
  @author DJS 2008-07.
+ @version DJS 2015-04: Added support for a selected item.
  */
 
-- (void)addItemToMenu:(NSMenu *)menu withTitle:(NSString *)title tag:(NSInteger)tag minimum:(NSInteger)minimum maximum:(NSInteger)maximum wantSeparator:(BOOL)wantSeparator;
+- (void)addItemToMenu:(NSMenu *)menu withTitle:(NSString *)title tag:(NSInteger)tag minimum:(NSInteger)minimum maximum:(NSInteger)maximum wantSeparator:(BOOL)wantSeparator selected:(BOOL)selected;
 {
     if (tag < minimum || tag > maximum)
     {
@@ -2170,6 +2190,11 @@
     item.target = self;
     item.tag = tag;
     
+    if (selected)
+    {
+        item.state = NSOnState;
+    }
+    
     [menu addItem:item];
 }
 
@@ -2188,6 +2213,7 @@
  Prepares a menu for the selected cell.
  
  @author DJS 2008-07.
+ @version DJS 2015-04: Added support for a selected item, and cleaned up the amounts array.
  */
 
 - (NSMenu *)makeMenuForSelectedCell;
@@ -2203,18 +2229,38 @@
             interval.units = [self unitsForIncludedMappingIndex:mappingIndex];
             
             BOOL wantSeparator = (interval.units == DejalIntervalUnitsDay || interval.units == DejalIntervalUnitsForever || interval.units == DejalIntervalUnitsNever);
+            BOOL selected = self.units == interval.units;
             
-            [self addItemToMenu:menu withTitle:interval.fullUnitsName tag:mappingIndex minimum:0 maximum:self.currentMaximum wantSeparator:wantSeparator];
+            [self addItemToMenu:menu withTitle:interval.fullUnitsName tag:mappingIndex minimum:0 maximum:self.currentMaximum wantSeparator:wantSeparator selected:selected];
         }
     }
     else
     {
-        NSInteger amounts[] = {0, 1, 2, 3, 4, 5, 10, 15, 20, 25, 30, 40, 50, 60, 90, 120};
-        NSInteger amountsCount = sizeof(amounts) / sizeof(NSInteger);
+        NSArray *amounts = @[@0, @1, @2, @3, @4, @5, @10, @15, @20, @25, @30, @40, @50, @60, @90, @120];
+        NSInteger selectedAmount = self.selectedCell == self.firstAmountCell ? self.firstAmount : self.secondAmount;
+        BOOL foundSelected = NO;
         
-        for (NSInteger amountsIndex = 0; amountsIndex < amountsCount; amountsIndex++)
+        for (NSNumber *amountNum in amounts)
         {
-            [self addItemToMenu:menu withTitle:nil tag:amounts[amountsIndex] minimum:self.currentMinimum maximum:self.currentMaximum wantSeparator:NO];
+            NSInteger amount = amountNum.integerValue;
+            BOOL selected = amount == selectedAmount;
+            
+            if (selected)
+            {
+                foundSelected = YES;
+            }
+            else if (amount > selectedAmount && !foundSelected)
+            {
+                [self addItemToMenu:menu withTitle:nil tag:selectedAmount minimum:self.currentMinimum maximum:self.currentMaximum wantSeparator:NO selected:YES];
+                foundSelected = YES;
+            }
+            
+            [self addItemToMenu:menu withTitle:nil tag:amount minimum:self.currentMinimum maximum:self.currentMaximum wantSeparator:NO selected:selected];
+        }
+        
+        if (!foundSelected)
+        {
+            [self addItemToMenu:menu withTitle:nil tag:selectedAmount minimum:self.currentMinimum maximum:self.currentMaximum wantSeparator:NO selected:YES];
         }
     }
     

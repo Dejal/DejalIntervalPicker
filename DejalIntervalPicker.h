@@ -74,6 +74,9 @@ IB_DESIGNABLE
 @property (nonatomic) IBInspectable BOOL includeForever;
 @property (nonatomic) IBInspectable BOOL includeNever;
 
+// Provided by the NSControl superclass, but provided here to make inspectable:
+@property (getter=isEnabled) IBInspectable BOOL enabled;
+
 - (void)setupForShortTerm;
 - (void)setupForLongTerm;
 - (void)setupForAllUnits;
