@@ -62,6 +62,7 @@
 @property (nonatomic, readonly, copy) NSMenu *makeMenuForSelectedCell;
 @property (nonatomic) BOOL ready;
 @property (nonatomic) BOOL canAutoPopMenu;
+@property (nonatomic) BOOL hasSetupObservers;
 @property (nonatomic) NSControlSize privateControlSize;
 
 @end
@@ -73,6 +74,8 @@
 
 
 @implementation DejalIntervalPicker
+
+@dynamic enabled;
 
 /**
  Exposes the available bindings.
@@ -1222,10 +1225,18 @@
  Adds KVO observers for the desired properties.
  
  @author DJS 2008-07.
+ @version DJS 2015-04: Added a flag to indicate if the observers have been set up.
  */
 
 - (void)setupObservers;
 {
+    if (self.hasSetupObservers)
+    {
+        return;
+    }
+    
+    self.hasSetupObservers = YES;
+    
     for (NSString *keyPath in self.observedKeyPaths)
     {
         [self addObserver:self forKeyPath:keyPath options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
@@ -1236,14 +1247,22 @@
  Removes the KVO observers.
  
  @author DJS 2008-07.
+ @version DJS 2015-04: Added a flag to indicate if the observers have been set up.
  */
 
 - (void)removeObservers;
 {
+    if (!self.hasSetupObservers)
+    {
+        return;
+    }
+    
     for (NSString *keyPath in self.observedKeyPaths)
     {
         [self removeObserver:self forKeyPath:keyPath];
     }
+    
+    self.hasSetupObservers = NO;
 }
 
 /**
