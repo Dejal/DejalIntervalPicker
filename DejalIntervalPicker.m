@@ -589,7 +589,10 @@
         self.secondAmountCell.integerValue = self.secondAmount;
     }
     
-    self.unitsCell.stringValue = self.interval.fullUnitsName;
+    if (self.interval)
+    {
+        self.unitsCell.stringValue = self.interval.fullUnitsName;
+    }
     
     // Update the enabled state of the sub-cells:
     self.enabled = self.enabled;
@@ -713,6 +716,7 @@
  
  @author DJS 2008-07.
  @version DJS 2015-02: Added Auto Layout content hugging.
+ @version DJS 2015-04: Now sets the interval.
  */
 
 - (void)awakeFromNib;
@@ -720,6 +724,7 @@
     [self setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationHorizontal];
     [self setContentHuggingPriority:NSLayoutPriorityDefaultHigh forOrientation:NSLayoutConstraintOrientationVertical];
     
+    self.interval = [DejalInterval intervalWithAmount:self.amount units:self.units];
     self.selectedCell = self.leftmostCell;
     self.previouslySelectedCell = self.leftmostCell;
     self.canAutoPopMenu = YES;
