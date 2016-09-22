@@ -1286,6 +1286,7 @@
  
  @author DJS 2008-07.
  @version DJS 2015-02: Tweaked the controlSize calls.
+ @version DJS 2016-08: Added a delegate invocation.
  */
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context;
@@ -1316,6 +1317,11 @@
         
         [self updateCells];
         [self sizeToFit];
+        
+        if (self.delegate && [self.delegate respondsToSelector:@selector(intervalPicker:intervalDidChange:)])
+        {
+            [self.delegate intervalPicker:self intervalDidChange:self.interval];
+        }
     }
 }
 

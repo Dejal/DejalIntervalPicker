@@ -37,6 +37,9 @@
 #import "DejalInterval.h"
 
 
+@class DejalIntervalPicker;
+
+
 typedef NS_ENUM(NSInteger, DejalIntervalPickerRangeFiltering)
 {
     DejalIntervalPickerAnyRange = 0,
@@ -47,9 +50,19 @@ typedef NS_ENUM(NSInteger, DejalIntervalPickerRangeFiltering)
 };
 
 
+@protocol DejalIntervalPickerDelegate <NSObject>
+
+@optional
+
+- (void)intervalPicker:(DejalIntervalPicker *)intervalPicker intervalDidChange:(DejalInterval *)interval;
+
+@end
+
+
 IB_DESIGNABLE
 @interface DejalIntervalPicker : NSControl <NSSecureCoding>
 
+@property (nonatomic, weak) id <DejalIntervalPickerDelegate> delegate;
 @property (nonatomic, copy) DejalInterval *interval;
 @property (nonatomic) IBInspectable CGFloat firstAmount;
 @property (nonatomic) IBInspectable CGFloat secondAmount;
