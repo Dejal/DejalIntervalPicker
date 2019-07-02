@@ -3,9 +3,9 @@
 //  Dejal Open Source
 //
 //  Created by David Sinclair on 2008-07-11.
-//  Copyright (c) 2008-2015 Dejal Systems, LLC. All rights reserved.
+//  Copyright (c) 2008-2019 Dejal Systems, LLC. All rights reserved.
 //
-//  This is a custom control for OS X to chose a time interval or range, similar to
+//  This is a custom control for macOS to choose a time interval or range, similar to
 //  a date picker.  It supports tabbing between values, incrementing or decrementing
 //  them via up/down or +/- keys, type-selection, and a popup menu for each value,
 //  among other features.  See the README for more information.
@@ -58,6 +58,7 @@
 @property (nonatomic, readonly) CGFloat currentMinimum;
 @property (nonatomic, readonly) CGFloat currentMaximum;
 @property (nonatomic, getter=isForeverOrNever, readonly) BOOL foreverOrNever;
+@property (nonatomic, readonly) BOOL isDark;
 @property (nonatomic, readonly, copy) NSArray *observedKeyPaths;
 @property (nonatomic, readonly, copy) NSMenu *makeMenuForSelectedCell;
 @property (nonatomic) BOOL ready;
@@ -1209,6 +1210,21 @@
     return self.units == DejalIntervalUnitsForever || self.units == DejalIntervalUnitsNever;
 }
 
+/**
+ Returns YES if the appearance is dark, or NO if light.
+ 
+ @author DJS 2018-10.
+*/
+
+- (BOOL)isDark;
+{
+    if (@available(macOS 10.14, *)) {
+        return [self.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]] == NSAppearanceNameDarkAqua;
+    } else {
+        return NO;
+    }
+}
+
 
 // ----------------------------------------------------------------------------------------
 #pragma mark - BINDINGS METHODS
@@ -1347,6 +1363,7 @@
  
  @author DJS 2008-07.
  @version DJS 2015-02: Changed the border colors to fit with Yosemite controls.
+ @version DJS 2018-10: Added dark mode support.
  */
 
 - (void)drawBorder;
@@ -1364,30 +1381,22 @@
         borderFrame.size.width -= 2.0;
     }
     
-    NSRectEdge sides[] = {NSMaxYEdge, NSMaxXEdge, NSMinXEdge, NSMinYEdge, NSMaxYEdge};
-    CGFloat enabledGrays[] = {0.75, 0.75, 0.75, 0.75};
-    CGFloat disabledGrays[] = {0.85, 0.85, 0.85, 0.85};
+    BOOL isDark = self.isDark;
+    NSColor *backgroundColor = isDark ? [NSColor colorWithWhite:0.12 alpha:1.0] : [NSColor whiteColor];
+    NSColor *insideFrameColor = isDark ? [NSColor colorWithWhite:0.11 alpha:1.0] : [NSColor colorWithWhite:0.93 alpha:1.0];
+    NSColor *outsideFrameColor = isDark ? [NSColor colorWithWhite:0.26 alpha:1.0] : [NSColor colorWithWhite:0.7 alpha:1.0];
+    NSRect insideFrame = NSInsetRect(borderFrame, 0.5, 0.5);
     
-    if (self.enabled)
-    {
-        borderFrame = NSDrawTiledRects(borderFrame, borderFrame, sides, enabledGrays, 4);
-    }
-    else
-    {
-        borderFrame = NSDrawTiledRects(borderFrame, borderFrame, sides, disabledGrays, 4);
-    }
- 
-    [[NSColor whiteColor] set];
+    [backgroundColor set];
     NSRectFill(borderFrame);
     
-    NSRect focusBounds = borderFrame;
+    [insideFrameColor set];
+    NSFrameRectWithWidth(insideFrame, 0.5);
     
-    focusBounds.origin.x -= 1.0;
-    focusBounds.origin.y -= 1.0;
-    focusBounds.size.width += 2.0;
-    focusBounds.size.height += 3.0;
+    [outsideFrameColor set];
+    NSFrameRectWithWidth(borderFrame, 0.5);
     
-    self.focusRingBounds = focusBounds;
+    self.focusRingBounds = borderFrame;
 }
 
 /**

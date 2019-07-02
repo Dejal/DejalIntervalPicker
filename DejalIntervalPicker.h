@@ -3,9 +3,9 @@
 //  Dejal Open Source
 //
 //  Created by David Sinclair on 2008-07-11.
-//  Copyright (c) 2008-2015 Dejal Systems, LLC. All rights reserved.
+//  Copyright (c) 2008-2019 Dejal Systems, LLC. All rights reserved.
 //
-//  This is a custom control for OS X to chose a time interval or range, similar to
+//  This is a custom control for macOS to choose a time interval or range, similar to
 //  a date picker.  It supports tabbing between values, incrementing or decrementing
 //  them via up/down or +/- keys, type-selection, and a popup menu for each value,
 //  among other features.  See the README for more information.
