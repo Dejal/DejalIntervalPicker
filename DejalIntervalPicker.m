@@ -347,20 +347,20 @@
         [self setupStepper];
     }
     
-    NSSize size = [[self setupCellWithString:[self stringWithIntegerValue:self.maximumAmount] isEditable:YES alignment:NSRightTextAlignment] cellSize];
+    NSSize size = [[self setupCellWithString:[self stringWithIntegerValue:self.maximumAmount] isEditable:YES alignment:NSTextAlignmentRight] cellSize];
     
     if (self.usingRange)
     {
-        size.width += [[self setupCellWithString:@"-" isEditable:YES alignment:NSCenterTextAlignment] cellSize].width + size.width;
+        size.width += [[self setupCellWithString:@"-" isEditable:YES alignment:NSTextAlignmentCenter] cellSize].width + size.width;
     }
     
-    size.width += [[self setupCellWithString:[DejalInterval intervalWithAmount:9.0 units:DejalIntervalUnitsSecond].fullUnitsName isEditable:YES alignment:NSLeftTextAlignment] cellSize].width;
+    size.width += [[self setupCellWithString:[DejalInterval intervalWithAmount:9.0 units:DejalIntervalUnitsSecond].fullUnitsName isEditable:YES alignment:NSTextAlignmentLeft] cellSize].width;
     
-    if (self.controlSize == NSMiniControlSize)
+    if (self.controlSize == NSControlSizeMini)
     {
         size.width += 2.0;
     }
-    else if (self.controlSize == NSSmallControlSize)
+    else if (self.controlSize == NSControlSizeSmall)
     {
         size.width += 1.0;
     }
@@ -385,7 +385,7 @@
     frame.size = [self.stepperCell cellSize];
     frame.origin.x = NSMaxX(baseFrame) - frame.size.width + 2.0;
     
-    if (self.controlSize == NSMiniControlSize)
+    if (self.controlSize == NSControlSizeMini)
     {
         frame.origin.y += 1.0;
     }
@@ -397,9 +397,9 @@
     self.stepperFrame = frame;
     
     frame = NSInsetRect(baseFrame, 2.0, 2.0);
-    frame.size = [[self setupCellWithString:[self stringWithIntegerValue:self.maximumAmount] isEditable:YES alignment:NSRightTextAlignment] cellSize];
+    frame.size = [[self setupCellWithString:[self stringWithIntegerValue:self.maximumAmount] isEditable:YES alignment:NSTextAlignmentRight] cellSize];
     
-    if (self.controlSize == NSMiniControlSize)
+    if (self.controlSize == NSControlSizeMini)
     {
         frame.size.width += 1.0;
     }
@@ -409,14 +409,14 @@
         self.firstAmountFrame = frame;
         
         frame.origin.x += floorf(frame.size.width);
-        frame.size = [[self setupCellWithString:@"-" isEditable:YES alignment:NSCenterTextAlignment] cellSize];
+        frame.size = [[self setupCellWithString:@"-" isEditable:YES alignment:NSTextAlignmentCenter] cellSize];
         
         self.rangeSeparatorFrame = frame;
         
         frame.origin.x += floorf(frame.size.width);
         frame.size = self.firstAmountFrame.size;
         
-        if (self.controlSize == NSMiniControlSize)
+        if (self.controlSize == NSControlSizeMini)
         {
             frame.size.width += 1.0;
         }
@@ -427,11 +427,11 @@
     frame.origin.x += floorf(frame.size.width);
     frame.size.width = (self.stepperFrame.origin.x - frame.origin.x) - 2.0;
     
-    if (self.controlSize == NSMiniControlSize)
+    if (self.controlSize == NSControlSizeMini)
     {
         frame.size.width -= 1.0;
     }
-    else if (self.controlSize == NSSmallControlSize)
+    else if (self.controlSize == NSControlSizeSmall)
     {
         frame.size.width -= 2.0;
     }
@@ -451,10 +451,10 @@
     
     [self sizeToFit];
     
-    self.firstAmountCell = [self setupCellWithString:@"" isEditable:YES alignment:NSRightTextAlignment];
-    self.rangeSeparatorCell = [self setupCellWithString:@"-" isEditable:YES alignment:NSCenterTextAlignment];
-    self.secondAmountCell = [self setupCellWithString:@"" isEditable:YES alignment:NSRightTextAlignment];
-    self.unitsCell = [self setupCellWithString:@"" isEditable:YES alignment:NSLeftTextAlignment];
+    self.firstAmountCell = [self setupCellWithString:@"" isEditable:YES alignment:NSTextAlignmentRight];
+    self.rangeSeparatorCell = [self setupCellWithString:@"-" isEditable:YES alignment:NSTextAlignmentCenter];
+    self.secondAmountCell = [self setupCellWithString:@"" isEditable:YES alignment:NSTextAlignmentRight];
+    self.unitsCell = [self setupCellWithString:@"" isEditable:YES alignment:NSTextAlignmentLeft];
     
     [self setupStepper];
     [self setupCellFrames];
@@ -1372,11 +1372,11 @@
     
     borderFrame.size.width -= [self.stepperCell cellSize].width - 1.0;
     
-    if (self.controlSize == NSMiniControlSize)
+    if (self.controlSize == NSControlSizeMini)
     {
         borderFrame.size.width -= 1.0;
     }
-    else if (self.controlSize == NSSmallControlSize)
+    else if (self.controlSize == NSControlSizeSmall)
     {
         borderFrame.size.width -= 2.0;
     }
@@ -1864,7 +1864,7 @@
 {
     for (NSMenuItem *menuItem in menu.itemArray)
     {
-        if (menuItem.state == NSOnState)
+        if (menuItem.state == NSControlStateValueOn)
         {
             return menuItem;
         }
@@ -2231,7 +2231,7 @@
     
     if (selected)
     {
-        item.state = NSOnState;
+        item.state = NSControlStateValueOn;
     }
     
     [menu addItem:item];
