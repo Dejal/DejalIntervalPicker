@@ -1218,11 +1218,7 @@
 
 - (BOOL)isDark;
 {
-    if (@available(macOS 10.14, *)) {
-        return [self.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]] == NSAppearanceNameDarkAqua;
-    } else {
-        return NO;
-    }
+    return [self.effectiveAppearance bestMatchFromAppearancesWithNames:@[NSAppearanceNameAqua, NSAppearanceNameDarkAqua]] == NSAppearanceNameDarkAqua;
 }
 
 
